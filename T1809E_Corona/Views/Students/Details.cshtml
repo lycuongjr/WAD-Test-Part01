@@ -1,0 +1,58 @@
+﻿@model T1809E_Corona.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fines)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fines)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Push_Up)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Push_Up)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Money)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Money)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<T1809E_Corona.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách phạt tiền muộn học</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fines)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Push_Up)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Money)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>     
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodeID)
+        </td>
+        <td>
+            @{
+                var Fines = (item.fines).ToString();
+            }
+            @if (Fines == "pushUp")
+            {
+                <p>Chống đẩy</p>
+            }
+            else if ((Fines == "money"))
+            {
+                <p>Nộp tiền</p>
+            }
+<td>
+            @Html.DisplayFor(modelItem => item.Push_Up)
+        </td>
+        <td>
+             @(item.Money.ToString("N0")) Đ
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+
+        </td>
+        <td>
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>
+     
+    </tr>
+}
+<tr>
+
+    <th>
+        Tổng 
+    </th>
+    <th></th>
+    <th>@Model.Sum(i=>i.Push_Up) Cái</th>
+    <th>     
+        @Model.Sum(i => i.Money).ToString("N0") Đ
+    </th>
+</tr>
+   
+
+
+</table>
